@@ -11,25 +11,9 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import Badge from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import useAuth from "../../../../Hooks/useAuth";
 import logo from "../../../../images/logo2.png";
-
-const pages = ["Products", "Registration", "Upcomming"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  "& .MuiBadge-badge": {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: "0 4px",
-  },
-}));
 
 const Navbar = () => {
   const { loginWithGoogle, user, logOut } = useAuth();
@@ -72,9 +56,9 @@ const Navbar = () => {
                   alignItems: "center",
                 }}
               >
-                <strong style={{ color: "black" }}> fRYn</strong>
+                <strong style={{ color: "black" }}> Niz</strong>
 
-                <small style={{ fontSize: "13px" }}> e shop</small>
+                <small style={{ fontSize: "13px" }}> Travel Agency</small>
               </Box>
             </Link>
           </Typography>

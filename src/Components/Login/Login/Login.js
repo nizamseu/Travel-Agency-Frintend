@@ -1,5 +1,6 @@
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 
 const Login = () => {
@@ -56,9 +57,27 @@ const Login = () => {
               Login
             </Button>
           </form>
-          {/* <NavLink style={{textDecoration: 'none', fontWeight: 600}} to="/register">
-                        New User? Please Register
-                    </NavLink> */}
+          <Button
+            onClick={loginWithGoogle}
+            style={{
+              backgroundColor: "white",
+              textAlign: "left",
+              marginBottom: "15px",
+              color: "red",
+              width: "100%",
+              margin: "15px 0",
+            }}
+            variant="contained"
+          >
+            Google
+          </Button>{" "}
+          <br />
+          <NavLink
+            style={{ textDecoration: "none", fontWeight: 600 }}
+            to="/Registration"
+          >
+            New User? Please Register
+          </NavLink>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <img

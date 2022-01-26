@@ -1,5 +1,6 @@
 import { Button, Container, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import useAuth from "../../../Hooks/useAuth";
 
 const Register = () => {
@@ -79,9 +80,12 @@ const Register = () => {
             </Button>
           </form>
 
-          {/* <NavLink style={{textDecoration: 'none', fontWeight: 600}} to="/login">
-                        Already Registered? Please Login
-                    </NavLink> */}
+          <NavLink
+            style={{ textDecoration: "none", fontWeight: 600 }}
+            to="/login"
+          >
+            Already Registered? Please Login
+          </NavLink>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <img
