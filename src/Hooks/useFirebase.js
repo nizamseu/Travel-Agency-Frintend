@@ -46,16 +46,14 @@ const useFirebase = () => {
       photoURL: "https://i.ibb.co/17LfyKx/download.png",
     })
       .then(() => {})
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
   //create user using email and password
 
   const createUser = (data) => {
     setIsLoading(true);
     const { name, email, password } = data;
-    console.log(email, password);
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         saveUser(email, name, "POST");
@@ -106,7 +104,6 @@ const useFirebase = () => {
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
-  console.log(user.email, admin, "emailkdjfldjf");
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {

@@ -5,6 +5,11 @@ import Login from "./Components/Login/Login/Login";
 import Register from "./Components/Login/Registration/Registration";
 import Reviews from "./Components/Pages/Home/Reviews/Reviews";
 import Details from "./Components/Pages/Destinations/Details";
+import ReviewDetails from "./Components/Pages/Home/Reviews/ReviewDetails";
+import AddBlogArticle from "./Components/Pages/AddBlogArticle/AddBlogArticle";
+import Dashboard from "./Components/Pages/Dashboard/Dashboard";
+import AddReview from "./Components/Pages/Dashboard/AddReview";
+import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -18,6 +23,21 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/Registration" element={<Register />} />
           <Route path="/detail/:id" element={<Details />} />
+          <Route path="/reviewDetails" element={<ReviewDetails />} />
+          <Route path="/blog" element={<AddBlogArticle />} />
+
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          >
+            <Route path="/dashboard" element={<Reviews />} />
+            <Route path="/dashboard/addBlog" element={<AddBlogArticle />} />
+            <Route path="/dashboard/addReview" element={<AddReview />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

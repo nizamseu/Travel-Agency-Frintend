@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   const images = [
     {
-      url: "https://m.media-amazon.com/images/S/aplus-media/vc/ab1f6527-bcbe-4eaa-82f5-b27f55188153.__CR0,0,1464,600_PT0_SX1464_V1___.jpg",
+      url: "https://wanderers.qodeinteractive.com/wp-content/uploads/2018/03/coming-soon-background-img.jpg",
     },
     {
-      url: "https://i.pinimg.com/originals/2d/9b/cd/2d9bcd94ecc4861fb3eb4d60c3130ea1.jpg",
+      url: "https://nerdymates.com/static/img/regular/shutterstock_1044339595.jpg",
     },
     {
-      url: "https://i.pinimg.com/originals/ca/e7/2c/cae72ce86998abcadd5051acd91a696b.jpg",
+      url: "http://gotravelingtoday.com/wp-content/uploads/537460174.jpg",
     },
     {
       url: "https://blog.pricekart.com/2021/09/W020200615796304356517.jpg",
