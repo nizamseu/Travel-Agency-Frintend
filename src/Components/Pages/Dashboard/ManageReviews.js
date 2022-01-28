@@ -7,7 +7,7 @@ import Reviews from "../Home/Reviews/Reviews";
 const ManageReviews = () => {
   const [reviewData, setReviewdata] = useState([]);
   useEffect(() => {
-    const url = "http://localhost:5000/getReviews";
+    const url = "https://pacific-retreat-04444.herokuapp.com/getReviews";
     axios.get(url).then((res) => {
       setReviewdata(res.data);
     });

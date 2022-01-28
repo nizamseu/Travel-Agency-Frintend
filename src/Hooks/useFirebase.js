@@ -46,7 +46,7 @@ const useFirebase = () => {
 
   // check email
   const checkmail = (user) => {
-    const url = `http://localhost:5000/checkmail/${user.email}`;
+    const url = `https://pacific-retreat-04444.herokuapp.com/checkmail/${user.email}`;
     axios.get(url).then((res) => {
       if (res.data[0].email) {
         return;
@@ -144,7 +144,7 @@ const useFirebase = () => {
   // Saving user info
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/addUser", {
+    fetch("https://pacific-retreat-04444.herokuapp.com/addUser", {
       method: method,
       headers: {
         "content-type": "application/json",

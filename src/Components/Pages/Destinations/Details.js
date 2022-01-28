@@ -12,7 +12,7 @@ const Details = () => {
 
   console.log("id", id);
   useEffect(() => {
-    const url = `http://localhost:5000/findBlog/${id}`;
+    const url = `https://pacific-retreat-04444.herokuapp.com/findBlog/${id}`;
     axios.get(url).then((data) => {
       setDetail(data.data);
       findReview(data.data.title);
@@ -20,7 +20,7 @@ const Details = () => {
   }, [id]);
 
   const findReview = (category) => {
-    const url = `http://localhost:5000/findReview/${category}`;
+    const url = `https://pacific-retreat-04444.herokuapp.com/findReview/${category}`;
     axios.get(url).then((data) => {
       setReviewData(data.data);
     });

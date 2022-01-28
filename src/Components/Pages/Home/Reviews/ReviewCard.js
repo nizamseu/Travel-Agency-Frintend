@@ -24,12 +24,14 @@ const ReviewCard = ({ item, isAdmin }) => {
   const { img, name, email, ratting, review, category, date, time, _id } = item;
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/review/${id}`).then((res) => {
-      if (res.data.deletedCount > 0) {
-        navigate("/dashboard");
-        AlertMessage("Deleted");
-      }
-    });
+    await axios
+      .delete(`https://pacific-retreat-04444.herokuapp.com/review/${id}`)
+      .then((res) => {
+        if (res.data.deletedCount > 0) {
+          navigate("/dashboard");
+          AlertMessage("Deleted");
+        }
+      });
   };
   return (
     <Card

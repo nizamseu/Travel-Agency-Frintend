@@ -27,9 +27,11 @@ const AddBlogArticle = () => {
   } = useForm();
   const onSubmit = (data, e) => {
     console.log(data);
-    axios.post("http://localhost:5000/addBlog", data).then((res) => {
-      AlertMessage();
-    });
+    axios
+      .post("https://pacific-retreat-04444.herokuapp.com/addBlog", data)
+      .then((res) => {
+        AlertMessage();
+      });
     e.target.reset();
   };
 

@@ -32,7 +32,7 @@ const AddReview = () => {
   } = useForm();
 
   useEffect(() => {
-    const url = "http://localhost:5000/addBlog";
+    const url = "https://pacific-retreat-04444.herokuapp.com/addBlog";
     axios.get(url).then((res) => {
       setLoadCategory(res.data);
     });
@@ -48,9 +48,11 @@ const AddReview = () => {
     data.time = time;
     data.category = category;
     console.log(data);
-    axios.post("http://localhost:5000/addReview", data).then((res) => {
-      AlertMessage();
-    });
+    axios
+      .post("https://pacific-retreat-04444.herokuapp.com/addReview", data)
+      .then((res) => {
+        AlertMessage();
+      });
     e.target.reset();
   };
 

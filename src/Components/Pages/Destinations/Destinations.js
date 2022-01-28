@@ -4,13 +4,22 @@ import { Grid, Pagination } from "@mui/material";
 import DestinationCard from "./DestinationCard";
 const Destinations = () => {
   const [item, setItem] = useState([]);
+  const [page, setPage] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
 
+  const size = 3;
+  console.log("page", page);
   useEffect(() => {
-    const url = "http://localhost:5000/addBlog";
+    const url = `https://pacific-retreat-04444.herokuapp.com/addBlog?page=${page}&size=${size}`;
     axios.get(url).then((res) => {
-      setItem(res.data);
+      console.log(res.data.count);
+      setItem(res.data.blogsData);
+      const count = res.data.count;
+      console.log(count, "count");
+      const pageNumber = Math.ceil(count / size);
+      setPageCount(pageNumber);
     });
-  }, []);
+  }, [page]);
 
   return (
     <div>
@@ -18,7 +27,12 @@ const Destinations = () => {
       <Grid container>
         {item && item.map((item) => <DestinationCard item={item} />)}
       </Grid>
-      <Pagination count={10} color="primary" />
+      <Pagination
+        count={pageCount}
+        color="primary"
+        variant="outlined"
+        onChange={(event, value) => setPage(--value)}
+      />
     </div>
   );
 };
