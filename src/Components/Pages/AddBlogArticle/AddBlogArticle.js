@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Grid, Paper, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -19,6 +19,8 @@ const AlertMessage = () => {
 };
 
 const AddBlogArticle = () => {
+  const { user, admin } = useFirebase();
+  const [admiUser, setAdminUser] = useState([]);
   const {
     register,
     handleSubmit,
@@ -26,17 +28,18 @@ const AddBlogArticle = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data, e) => {
-    console.log(data);
+    if (admin.role === "admin") {
+      data.status = "approved";
+    } else {
+      data.status = "pending";
+    }
+
     axios
       .post("https://pacific-retreat-04444.herokuapp.com/addBlog", data)
       .then((res) => {
         AlertMessage();
       });
     e.target.reset();
-  };
-
-  const onChange = (e) => {
-    console.log(e.target.value);
   };
 
   return (

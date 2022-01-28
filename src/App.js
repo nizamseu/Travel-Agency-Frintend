@@ -12,6 +12,7 @@ import AddReview from "./Components/Pages/Dashboard/AddReview";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import ManageReviews from "./Components/Pages/Dashboard/ManageReviews";
 import ManageBlog from "./Components/Pages/Dashboard/ManageBlog";
+import MyReviews from "./Components/Pages/Dashboard/MyReviews";
 
 function App() {
   return (
@@ -36,11 +37,54 @@ function App() {
               </PrivateRoute>
             }
           >
-            <Route path="/dashboard" element={<Reviews />} />
-            <Route path="/dashboard/addBlog" element={<AddBlogArticle />} />
-            <Route path="/dashboard/addReview" element={<AddReview />} />
-            <Route path="/dashboard/reviews" element={<ManageReviews />} />
-            <Route path="/dashboard/blogs" element={<ManageBlog />} />
+            <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <AddBlogArticle />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/addBlog"
+              element={
+                <PrivateRoute>
+                  <AddBlogArticle />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/addReview"
+              element={
+                <PrivateRoute>
+                  <AddReview />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/reviews"
+              element={
+                <PrivateRoute>
+                  <ManageReviews />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/blogs"
+              element={
+                <PrivateRoute>
+                  <ManageBlog />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/myreview"
+              element={
+                <PrivateRoute>
+                  <MyReviews />
+                </PrivateRoute>
+              }
+            />
           </Route>
         </Routes>
       </BrowserRouter>

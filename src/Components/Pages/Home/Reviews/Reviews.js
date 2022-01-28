@@ -8,7 +8,7 @@ const Reviews = () => {
   const [reviewData, setReviewdata] = React.useState([]);
 
   useEffect(() => {
-    const url = "https://pacific-retreat-04444.herokuapp.com/getReviews";
+    const url = "http://localhost:5000/getReviews";
     axios.get(url).then((res) => {
       setReviewdata(res.data);
     });

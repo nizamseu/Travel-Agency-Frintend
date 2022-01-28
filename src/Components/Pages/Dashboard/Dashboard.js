@@ -21,11 +21,12 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useAuth from "../../../Hooks/useAuth";
 import "./style.css";
+import { Button, Grid } from "@mui/material";
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
-  const { logOut } = useAuth();
+  const { logOut, admin } = useAuth();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -43,11 +44,6 @@ function Dashboard(props) {
           Home
         </Link>
       </List>
-      <List>
-        <Link className="menu" to="/dashboard/addReview">
-          Add Review
-        </Link>
-      </List>
       <br />
       <List>
         <Link className="menu" to="/dashboard/addBlog">
@@ -55,23 +51,43 @@ function Dashboard(props) {
         </Link>
       </List>
       <br />
+      {admin?.role !== "admin" ? (
+        <Grid>
+          <List>
+            <Link className="menu" to="/dashboard/myreview">
+              My Review
+            </Link>
+          </List>
+          <br />
+          <List>
+            <Link className="menu" to="/dashboard/addReview">
+              Add Review
+            </Link>
+          </List>
+          <br />
+        </Grid>
+      ) : (
+        <Grid>
+          <List>
+            <Link className="menu" to="/dashboard/reviews">
+              Manage Reviews
+            </Link>
+          </List>
+          <br />
+          <List>
+            <Link className="menu" to="/dashboard/blogs">
+              Manage Blog
+            </Link>
+          </List>
+          <br />
+        </Grid>
+      )}
+
       <List>
-        <Link className="menu" to="/dashboard/reviews">
-          Manage Reviews
-        </Link>
-      </List>
-      <br />
-      <List>
-        <Link className="menu" to="/dashboard/blogs">
-          Manage Blog
-        </Link>
-      </List>
-      <br />
-      <List>
-        <Typography variant="body3" onClick={logOut}>
+        <Button color="error" onClick={logOut} variant="body3">
           <LogoutIcon sx={{ fontSize: 20, margin: "6px 10px -5px 0" }} />
           LogOut
-        </Typography>
+        </Button>
       </List>
     </div>
   );
@@ -100,7 +116,7 @@ function Dashboard(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            Dashboard
           </Typography>
         </Toolbar>
       </AppBar>

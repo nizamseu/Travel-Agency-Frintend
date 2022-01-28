@@ -8,14 +8,11 @@ const Destinations = () => {
   const [pageCount, setPageCount] = useState(0);
 
   const size = 3;
-  console.log("page", page);
   useEffect(() => {
     const url = `https://pacific-retreat-04444.herokuapp.com/addBlog?page=${page}&size=${size}`;
     axios.get(url).then((res) => {
-      console.log(res.data.count);
       setItem(res.data.blogsData);
       const count = res.data.count;
-      console.log(count, "count");
       const pageNumber = Math.ceil(count / size);
       setPageCount(pageNumber);
     });

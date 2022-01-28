@@ -121,12 +121,12 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
   // is admin
+
   useEffect(() => {
-    fetch(
-      `https://whispering-waters-68649.herokuapp.com/customers/${user.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
+    const url = `https://pacific-retreat-04444.herokuapp.com/checkmail/${user.email}`;
+    axios.get(url).then((res) => {
+      setAdmin(res.data[0]);
+    });
   }, [user.email]);
 
   useEffect(() => {
