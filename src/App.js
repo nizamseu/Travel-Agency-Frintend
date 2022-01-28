@@ -10,6 +10,8 @@ import AddBlogArticle from "./Components/Pages/AddBlogArticle/AddBlogArticle";
 import Dashboard from "./Components/Pages/Dashboard/Dashboard";
 import AddReview from "./Components/Pages/Dashboard/AddReview";
 import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
+import ManageReviews from "./Components/Pages/Dashboard/ManageReviews";
+import ManageBlog from "./Components/Pages/Dashboard/ManageBlog";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
             <Route path="/dashboard" element={<Reviews />} />
             <Route path="/dashboard/addBlog" element={<AddBlogArticle />} />
             <Route path="/dashboard/addReview" element={<AddReview />} />
+            <Route path="/dashboard/reviews" element={<ManageReviews />} />
+            <Route path="/dashboard/blogs" element={<ManageBlog />} />
           </Route>
         </Routes>
       </BrowserRouter>

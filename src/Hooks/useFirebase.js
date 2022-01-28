@@ -8,9 +8,12 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import AlertMessage from "../utility/ConfirmAlert";
+import axios from "axios";
 
 initializeAuthentication();
 
@@ -31,6 +34,8 @@ const useFirebase = () => {
     signInWithPopup(auth, GoogleProvider)
       .then((result) => {
         setUser(result.user);
+        checkmail(result.user);
+
         navigate(from);
       })
       .catch((error) => {
@@ -39,11 +44,23 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  // check email
+  const checkmail = (user) => {
+    const url = `http://localhost:5000/checkmail/${user.email}`;
+    axios.get(url).then((res) => {
+      if (res.data[0].email) {
+        return;
+      } else saveUser(user.email, user.displayName, "POST");
+    });
+  };
+
   //update profile
   const profileUpdate = (name) => {
     updateProfile(auth.currentUser, {
       displayName: name,
-      photoURL: "https://i.ibb.co/17LfyKx/download.png",
+      photoURL:
+        "https://pngset.com/images/account-avatar-human-people-profile-user-icon-number-symbol-text-moon-transparent-png-1625917.png",
+      // photoURL: "https://i.ibb.co/17LfyKx/download.png",
     })
       .then(() => {})
       .catch((error) => {});
@@ -56,6 +73,7 @@ const useFirebase = () => {
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
+        emailVerufy();
         saveUser(email, name, "POST");
         profileUpdate(name);
       })
@@ -82,6 +100,13 @@ const useFirebase = () => {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  //send email verification
+  const emailVerufy = () => {
+    sendEmailVerification(auth.currentUser).then(() => {
+      AlertMessage("Very Your email");
+    });
   };
 
   //    log out
@@ -119,7 +144,7 @@ const useFirebase = () => {
   // Saving user info
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("https://whispering-waters-68649.herokuapp.com/customers", {
+    fetch("http://localhost:5000/addUser", {
       method: method,
       headers: {
         "content-type": "application/json",

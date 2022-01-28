@@ -12,12 +12,25 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { Rating } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Button, Rating } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import { Box } from "@mui/system";
+import Swal from "sweetalert2";
+import axios from "axios";
+import AlertMessage from "../../../../utility/ConfirmAlert";
 
-const ReviewCard = ({ item }) => {
-  console.log(item);
-  const { img, name, email, ratting, review, category, date, time } = item;
+const ReviewCard = ({ item, isAdmin }) => {
+  const navigate = useNavigate();
+  const { img, name, email, ratting, review, category, date, time, _id } = item;
+
+  const handleDelete = async (id) => {
+    await axios.delete(`http://localhost:5000/review/${id}`).then((res) => {
+      if (res.data.deletedCount > 0) {
+        navigate("/dashboard");
+        AlertMessage("Deleted");
+      }
+    });
+  };
   return (
     <Card
       item
@@ -55,7 +68,10 @@ const ReviewCard = ({ item }) => {
           </Typography>
         </CardContent>
       </Link>
-      <Rating sx={{ m: 1 }} value={ratting} readOnly />
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Rating sx={{ m: 1 }} value={ratting} readOnly />{" "}
+        {isAdmin && <Button onClick={() => handleDelete(_id)}>Delete</Button>}
+      </Box>
     </Card>
   );
 };

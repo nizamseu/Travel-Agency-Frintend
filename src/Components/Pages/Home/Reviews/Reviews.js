@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import axios from "axios";
 import ReviewCard from "./ReviewCard";
+import Swal from "sweetalert2";
 
 const Reviews = () => {
   const [reviewData, setReviewdata] = React.useState([]);
@@ -13,13 +14,19 @@ const Reviews = () => {
     });
   }, []);
 
-  console.log("review", reviewData);
+  const handleDelete = (id) => {
+    console.log("ffg", id);
+  };
   return (
     <div>
       <h1>Reviews</h1>
       <Grid container>
         {reviewData?.map((item) => (
-          <ReviewCard item={item}></ReviewCard>
+          <ReviewCard
+            handleDelete={handleDelete}
+            item={item}
+            isAdmin={false}
+          ></ReviewCard>
         ))}
       </Grid>
     </div>

@@ -17,7 +17,7 @@ import logo from "../../../../images/logo2.png";
 
 const Navbar = () => {
   const { loginWithGoogle, user, logOut } = useAuth();
-  console.log(user);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -103,7 +103,7 @@ const Navbar = () => {
                 <Link to={"/reviews"}>Reviews</Link>
               </MenuItem> */}
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={"/Login"}>Login</Link>
+                <Link to={"/login"}>Login</Link>
                 {/* <Button onClick={loginWithGoogle}>Login</Button> */}
               </MenuItem>
             </Menu>

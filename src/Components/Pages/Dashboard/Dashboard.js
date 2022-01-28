@@ -20,6 +20,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import GridViewIcon from "@mui/icons-material/GridView";
 import LogoutIcon from "@mui/icons-material/Logout";
 import useAuth from "../../../Hooks/useAuth";
+import "./style.css";
 
 const drawerWidth = 240;
 
@@ -38,59 +39,36 @@ function Dashboard(props) {
       <Divider />
       <br />
       <List>
-        <Link
-          to="/home"
-          style={{
-            textDecoration: "none",
-            color: "#F37539",
-            fontWeight: "bold",
-            margin: "10px",
-          }}
-        >
-          {" "}
+        <Link className="menu" to="/home">
           Home
         </Link>
       </List>
       <List>
-        {" "}
-        <Link
-          to="/dashboard/addBlog"
-          style={{
-            textDecoration: "none",
-            color: "black",
-            fontWeight: "bold",
-            margin: "10px",
-          }}
-        >
-          Add Blog
-        </Link>
-        <br />
-        <Link
-          to="/dashboard/addReview"
-          style={{
-            textDecoration: "none",
-            color: "black",
-            fontWeight: "bold",
-            margin: "10px",
-          }}
-        >
-          {" "}
+        <Link className="menu" to="/dashboard/addReview">
           Add Review
         </Link>
       </List>
+      <br />
       <List>
-        {" "}
-        <Typography
-          variant="body3"
-          onClick={logOut}
-          style={{
-            textDecoration: "none",
-            color: "#F37539",
-            fontWeight: "bold",
-            margin: "10px",
-          }}
-        >
-          {" "}
+        <Link className="menu" to="/dashboard/addBlog">
+          Add Blog
+        </Link>
+      </List>
+      <br />
+      <List>
+        <Link className="menu" to="/dashboard/reviews">
+          Manage Reviews
+        </Link>
+      </List>
+      <br />
+      <List>
+        <Link className="menu" to="/dashboard/blogs">
+          Manage Blog
+        </Link>
+      </List>
+      <br />
+      <List>
+        <Typography variant="body3" onClick={logOut}>
           <LogoutIcon sx={{ fontSize: 20, margin: "6px 10px -5px 0" }} />
           LogOut
         </Typography>

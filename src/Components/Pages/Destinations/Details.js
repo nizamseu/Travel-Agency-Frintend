@@ -3,20 +3,30 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Grid, Paper, Rating } from "@mui/material";
 import "../AddBlogArticle/style.css";
-import Reviews from "../Home/Reviews/Reviews";
+import "./detail.css";
+import ReviewCard from "../Home/Reviews/ReviewCard";
 const Details = () => {
   const { id } = useParams();
   const [detail, setDetail] = useState([]);
+  const [reviewData, setReviewData] = useState([]);
 
   console.log("id", id);
   useEffect(() => {
     const url = `http://localhost:5000/findBlog/${id}`;
     axios.get(url).then((data) => {
       setDetail(data.data);
+      findReview(data.data.title);
     });
   }, [id]);
 
-  console.log(detail);
+  const findReview = (category) => {
+    const url = `http://localhost:5000/findReview/${category}`;
+    axios.get(url).then((data) => {
+      setReviewData(data.data);
+    });
+  };
+
+  console.log(reviewData);
 
   return (
     <div>
@@ -30,7 +40,7 @@ const Details = () => {
           />
           <div className="middle">
             <h1 style={{ color: "white", fontSize: "70px", fontWeight: "900" }}>
-              {detail.tittel}
+              {detail.title}
             </h1>
           </div>
         </div>
@@ -79,8 +89,10 @@ const Details = () => {
         </Grid>
 
         {/* user review  */}
-        <Grid sx={{ mx: 3 }}>
-          <Reviews></Reviews>
+        <Grid container sx={{ mx: 2 }}>
+          {reviewData?.map((item) => (
+            <ReviewCard item={item}></ReviewCard>
+          ))}
         </Grid>
       </Grid>
     </div>
