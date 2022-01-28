@@ -80,6 +80,12 @@ function Dashboard(props) {
             </Link>
           </List>
           <br />
+          <List>
+            <Link className="menu" to="/dashboard/makeadmin">
+              Make Admin
+            </Link>
+          </List>
+          <br />
         </Grid>
       )}
 

@@ -30,13 +30,6 @@ const Home = () => {
       >
         {/* side bar  */}
         <Grid item xs={12} sm={2}>
-          {" "}
-          SideBar <br />
-          <Link to={"/home"}>Home</Link> <br />
-          <Link to={"/reviews"}>Reviews</Link>
-          <br />
-          <Link to={"/login"}>login</Link>
-          <br />
           <Sidebar></Sidebar>
         </Grid>
         <Grid item xs={12} sm={10} md={10} lg={10} xl={10}>

@@ -14,21 +14,6 @@ const Banner = () => {
     {
       url: "http://gotravelingtoday.com/wp-content/uploads/537460174.jpg",
     },
-    {
-      url: "https://blog.pricekart.com/2021/09/W020200615796304356517.jpg",
-    },
-    {
-      url: "https://cdn2.f-cdn.com/contestentries/927578/18584425/587bb1a7d9007_thumb900.jpg",
-    },
-    {
-      url: "https://cdn5.f-cdn.com/contestentries/927578/8154646/587de3d876346_thumb900.jpg",
-    },
-    {
-      url: "https://www.2yodoindia.com/wp-content/uploads/2021/04/Daiwa-4K-UHD-Smart-TV-D50162FL-Launched-in-India.jpg",
-    },
-    {
-      url: "https://yourshoppy.com/wp-content/uploads/2021/04/UX482.jpg",
-    },
   ];
   return (
     <div>

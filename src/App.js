@@ -13,6 +13,7 @@ import PrivateRoute from "./Components/Login/PrivateRoute/PrivateRoute";
 import ManageReviews from "./Components/Pages/Dashboard/ManageReviews";
 import ManageBlog from "./Components/Pages/Dashboard/ManageBlog";
 import MyReviews from "./Components/Pages/Dashboard/MyReviews";
+import MakeAdmin from "./Components/Pages/Dashboard/MakeAdmin";
 
 function App() {
   return (
@@ -82,6 +83,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <MyReviews />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/dashboard/makeadmin"
+              element={
+                <PrivateRoute>
+                  <MakeAdmin />
                 </PrivateRoute>
               }
             />
