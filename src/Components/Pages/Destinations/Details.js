@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Grid, Paper, Rating } from "@mui/material";
-import "../AddBlogArticle/style.css";
 import "./detail.css";
 import ReviewCard from "../Home/Reviews/ReviewCard";
 const Details = () => {
@@ -10,7 +9,6 @@ const Details = () => {
   const [detail, setDetail] = useState([]);
   const [reviewData, setReviewData] = useState([]);
 
-  console.log("id", id);
   useEffect(() => {
     const url = `https://pacific-retreat-04444.herokuapp.com/findBlog/${id}`;
     axios.get(url).then((data) => {
@@ -76,12 +74,13 @@ const Details = () => {
         <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <h1 style={{ marginLeft: "30px" }}>Details Information</h1>
           <Grid sx={{ my: "10px", mx: 5 }}>
-            <h1> Name: {}</h1>
-            <h2>Location:{}</h2>
-            <h3> Price:{}</h3>
+            <h1> Name: {detail.title}</h1>
+            <h2>Location:{detail.location}</h2>
+            <h3> Cost:{detail.cost} TK</h3>
             <h3 style={{ display: "flex", alignItems: "center" }}>
               {" "}
-              <Rating sx={{ m: 1 }} value={5} readOnly /> [31]
+              <Rating sx={{ m: 1 }} value={5} readOnly />
+              {[reviewData.length]}
             </h3>
             <br />
             <Button sx={{ my: 5 }}>Add Your Experience</Button>

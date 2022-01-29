@@ -7,7 +7,7 @@ const Destinations = () => {
   const [page, setPage] = useState(0);
   const [pageCount, setPageCount] = useState(0);
 
-  const size = 3;
+  const size = 10;
   useEffect(() => {
     const url = `https://pacific-retreat-04444.herokuapp.com/addBlog?page=${page}&size=${size}`;
     axios.get(url).then((res) => {
@@ -20,11 +20,17 @@ const Destinations = () => {
 
   return (
     <div>
-      <h1>Top Destination</h1>
+      <h1>Destination</h1>
       <Grid container>
         {item && item.map((item) => <DestinationCard item={item} />)}
       </Grid>
       <Pagination
+        sx={{
+          my: 3,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         count={pageCount}
         color="primary"
         variant="outlined"

@@ -14,6 +14,7 @@ import ManageReviews from "./Components/Pages/Dashboard/ManageReviews";
 import ManageBlog from "./Components/Pages/Dashboard/ManageBlog";
 import MyReviews from "./Components/Pages/Dashboard/MyReviews";
 import MakeAdmin from "./Components/Pages/Dashboard/MakeAdmin";
+import Destinations from "./Components/Pages/Destinations/Destinations";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           <Route path="/Registration" element={<Register />} />
           <Route path="/detail/:id" element={<Details />} />
           <Route path="/reviewDetails" element={<ReviewDetails />} />
-          <Route path="/blog" element={<AddBlogArticle />} />
+          <Route path="/blog" element={<Destinations />} />
 
           <Route
             path="/dashboard"

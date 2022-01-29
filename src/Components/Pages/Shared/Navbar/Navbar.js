@@ -94,10 +94,10 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={"/reviews"}>Reviews</Link>
+                <Link to={"/blog"}>Blog</Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to={"/registration"}>Registration</Link>
+                <Link to={"/reviews"}>Reviews</Link>
               </MenuItem>
               {/* <MenuItem onClick={handleCloseNavMenu}>
                 <Link to={"/reviews"}>Reviews</Link>
@@ -125,10 +125,10 @@ const Navbar = () => {
             }}
           >
             <MenuItem>
-              <Link to={"/reviews"}>Reviews</Link>
+              <Link to={"/blog"}>Blogs</Link>
             </MenuItem>
             <MenuItem>
-              <Link to={"/registration"}>Registration</Link>
+              <Link to={"/reviews"}>Reviews</Link>
             </MenuItem>
             {/* <MenuItem>
               <Link to={"/upcomming"}>Upcomming</Link>

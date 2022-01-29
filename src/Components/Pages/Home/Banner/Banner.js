@@ -6,13 +6,22 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   const images = [
     {
+      url: "https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-1-slide-1.jpg",
+    },
+    {
       url: "https://wanderers.qodeinteractive.com/wp-content/uploads/2018/03/coming-soon-background-img.jpg",
     },
     {
-      url: "https://nerdymates.com/static/img/regular/shutterstock_1044339595.jpg",
+      url: "https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-5-slide-1.jpg",
     },
     {
-      url: "http://gotravelingtoday.com/wp-content/uploads/537460174.jpg",
+      url: "https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-1-slide-4.jpg",
+    },
+    {
+      url: "https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-5-slide-2.jpg",
+    },
+    {
+      url: "https://voyage.qodeinteractive.com/wp-content/uploads/2016/04/home-5-slide-5.jpg",
     },
   ];
   return (
@@ -37,10 +46,7 @@ const Banner = () => {
           position: "absolute",
         }}
       >
-        <Link
-          style={{ textDecoration: "none", color: "white" }}
-          to={"/products"}
-        >
+        <Link style={{ textDecoration: "none", color: "white" }} to={"/blog"}>
           Explore Yor Dream
         </Link>
       </Button>

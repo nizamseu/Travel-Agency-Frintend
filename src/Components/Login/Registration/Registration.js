@@ -91,7 +91,7 @@ const Register = () => {
           <img
             width="90%"
             height="500px"
-            src="https://i.ibb.co/sp4kCWS/login.jpg"
+            src="https://growform.co/wp-content/uploads/2019/01/signup.png"
             alt=""
           />
         </Grid>

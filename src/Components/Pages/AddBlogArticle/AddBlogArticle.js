@@ -29,7 +29,7 @@ const AddBlogArticle = () => {
   } = useForm();
   const onSubmit = (data, e) => {
     if (admin.role === "admin") {
-      data.status = "approved";
+      data.status = "approve";
     } else {
       data.status = "pending";
     }
@@ -53,7 +53,7 @@ const AddBlogArticle = () => {
           <form className="review" onSubmit={handleSubmit(onSubmit)}>
             <input
               {...register("title", { required: true })}
-              placeholder="Product Title"
+              placeholder="Title"
             />{" "}
             <br />
             {errors.title && <p className="error">Maximum 30 Charachter</p>}

@@ -22,9 +22,9 @@ const Sidebar = () => {
     <Grid sx={{ mx: 1 }}>
       <h3>Top Site</h3>
       {item.map((i) => (
-        <h3>
-          <Link to={`/detail/${i._id}`}>{i.title}</Link>
-        </h3>
+        <h4>
+          <Link to={`/detail/${i._id}`}>{i.title}</Link> ({i.cost}TK)
+        </h4>
       ))}
     </Grid>
   );
